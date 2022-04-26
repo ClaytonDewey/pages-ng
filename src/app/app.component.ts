@@ -107,6 +107,11 @@ export class AppComponent {
     ]
 
     checkWindowIndex(index: number) {
-        return Math.abs(this.currentPage - index) < 5;
+        const limit = 5;
+    
+        const lowerBound = Math.floor(this.currentPage / limit) * limit;
+        const upperBound = lowerBound + limit;
+    
+        return lowerBound <= index && index < upperBound;
     }
 }

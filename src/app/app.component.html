@@ -1,14 +1,15 @@
 <nav class="text-center">
     <ul class="pagination justify-content-center">
-        <li class="page-item" [ngClass]="{ disabled: currentPage === 0 }">
+        <li class="page-item" [appClass]="{ disabled: currentPage === 0 }">
             <a class="page-link" (click)="currentPage = currentPage - 1" href="#">Prev</a>
         </li>
         <ng-container *ngFor="let image of images; let i = index;">
-            <li class="page-item" [ngClass]="{ active: i === currentPage }" *ngIf="checkWindowIndex(i)">
+            <li class="page-item" [appClass]="{ active: i === currentPage }" *ngIf="checkWindowIndex(i)"
+                style="width: 50px;">
                 <a href="#" (click)="currentPage = i" class="page-link">{{ i + 1 }}</a>
             </li>
         </ng-container>
-        <li class="page-item" [ngClass]="{ disabled: currentPage === images.length - 1}">
+        <li class="page-item" [appClass]="{ disabled: currentPage === images.length - 1}">
             <a class="page-link" (click)="currentPage = currentPage + 1" href="#">Next</a>
         </li>
     </ul>
